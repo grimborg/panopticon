@@ -1,0 +1,20 @@
+project
+revision
+files
+    path
+    objects
+        type
+        line
+        name
+        rank
+        score
+    loc
+    lloc
+    sloc
+    comments
+    multi
+    blank
+    comment_stats
+        perc_commented_loc
+        perc_commented_sloc
+        perc_multi_commented_loc
