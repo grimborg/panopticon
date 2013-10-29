@@ -1,9 +1,21 @@
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+  <h1>Complexity</h1>
+  <div>
+    <button ng-click="load();update(cvalue)">Load</button>
+    <button ng-click="clear()">Clear</button>
+  </div>
+  <div>
+    Mark functions with complexity more than:
+    <input type="text" ng-model="cvalue" ng-change="update(cvalue)" />
+  </div>
+  <h2>Metrics</h2>
+  <div>
+    <span class="indication">{{items}}</span> functions are in danger!
+  </div>
+  <div ng-repeat="(filename, values) in data">
+    <div class="filename {{filterFile(filename, cvalue)}}">{{filename}}</div>
+    <div ng-repeat="value in values">
+      <div class="{{filterFunction(value.complexity, cvalue)}}">{{value.name}}</div>
+    </div>
+  </div>
 </div>

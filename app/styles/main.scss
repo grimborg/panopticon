@@ -30,3 +30,16 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+.hero-unit div.filename {
+    font-weight: bold;
+    color: blue;
+}
+
+.hero-unit div.hidden {
+    display: none;
+}
+
+.hero-unit span.indication {
+    font-weight: bold;
+}
