@@ -12,10 +12,16 @@
   <div>
     <span class="indication">{{items}}</span> functions are in danger!
   </div>
-  <div ng-repeat="(filename, values) in data">
-    <div class="filename {{filterFile(filename, cvalue)}}">{{filename}}</div>
+  <div ng-repeat="(filename, values) in otherData">
+    <div class="filename" ng-hide="hideFile(filename, cvalue)">{{filename}}</div>
     <div ng-repeat="value in values">
-      <div class="{{filterFunction(value.complexity, cvalue)}}">{{value.name}}</div>
+      <div ng-hide="hideFunction(value.complexity, cvalue)">{{value.name}}</div>
     </div>
+  </div>
+
+  <h2>D3 Chart</h2>
+  <div>
+    <a href="" ng-click="updateData()">Click here to get new data</a><br>
+    <sc-Chart val="data"></sc-Chart>
   </div>
 </div>

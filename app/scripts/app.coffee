@@ -3,7 +3,9 @@
 angular.module('complexApp', [
   'ngCookies',
   'ngResource',
-  'ngSanitize'
+  'ngSanitize',
+  'complexApp.controllers',
+  'complexApp.directives'
 ])
   .config ($routeProvider) ->
     $routeProvider
