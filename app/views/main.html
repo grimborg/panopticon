@@ -5,23 +5,47 @@
     <button ng-click="clear()">Clear</button>
   </div>
   <div>
-    Mark functions with complexity more than:
+    Show functions with complexity more than:
     <input type="text" ng-model="cvalue" ng-change="update(cvalue)" />
   </div>
   <h2>Metrics</h2>
   <div>
     <span class="indication">{{items}}</span> functions are in danger!
   </div>
-  <div ng-repeat="(filename, values) in otherData">
-    <div class="filename" ng-hide="hideFile(filename, cvalue)">{{filename}}</div>
-    <div ng-repeat="value in values">
-      <div ng-hide="hideFunction(value.complexity, cvalue)">{{value.name}}</div>
+  <div ng-repeat="file in files">
+    <div class="filename" ng-hide="file.isHidden(cvalue)">{{file.name}}</div>
+    <div ng-repeat="record in file.records">
+      <div ng-hide="record.isHidden(cvalue)">{{record.name}}</div>
     </div>
   </div>
 
   <h2>D3 Chart</h2>
   <div>
     <a href="" ng-click="updateData()">Click here to get new data</a><br>
-    <sc-Chart val="data"></sc-Chart>
+    <chart val="files"></chart>
+  </div>
+
+  <div>
+    <div ng-repeat="file in files">
+      <div>
+        <h2>{{file.name}}</h2>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Object Name</th>
+            <th>Complexity</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="record in file.records">
+            <td>{{record.name}}</td>
+            <td>{{record.complexity}}</td>
+            <td>{{record.type}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
